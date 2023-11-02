@@ -2,7 +2,9 @@
 
 
 @section('main')
-    <h1>
-        Welcome
-    </h1>
+    <main id="welcome_main">
+        <h1>
+            Welcome
+        </h1>
+    </main>
 @endsection
