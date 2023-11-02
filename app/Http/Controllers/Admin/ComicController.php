@@ -73,7 +73,7 @@ class ComicController extends Controller
             Storage::delete($comic->thumb);
 
             $newImage = $request->thumb;
-            $imagePath = Storage::put('comics_image', $newImage);
+            $imagePath = Storage::put('comics_images', $newImage);
             $data['thumb'] = $imagePath;
         }
 
