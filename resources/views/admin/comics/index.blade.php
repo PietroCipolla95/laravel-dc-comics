@@ -39,13 +39,25 @@
 
                                     </td>
                                     <td>{{ $comic->title }}</td>
-                                    <td>{{ $comic->description }}</td>
+                                    <td>
+                                        <p>
+                                            {{ $comic->description }}
+                                        </p>
+                                    </td>
                                     <td>{{ $comic->price }}</td>
                                     <td>{{ $comic->series }}</td>
                                     <td>{{ $comic->sale_date }}</td>
                                     <td>{{ $comic->type }}</td>
-                                    <td>{{ $comic->artists }}</td>
-                                    <td>{{ $comic->writers }}</td>
+                                    <td>
+                                        <p>
+                                            {{ $comic->artists }}
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            {{ $comic->writers }}
+                                        </p>
+                                    </td>
                                     <td>
 
                                         <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary">View</a>
@@ -56,7 +68,7 @@
                             @empty
                                 <tr class="">
 
-                                    <td>Oops! No sabers yet!</td>
+                                    <td>Oops! No comics yet!</td>
 
                                 </tr>
                             @endforelse
