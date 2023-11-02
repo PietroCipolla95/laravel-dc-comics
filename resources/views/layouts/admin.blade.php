@@ -24,7 +24,7 @@
         </nav>
     </header>
 
-    <main class="min-vh-100">
+    <main>
         @yield('main')
     </main>
 
