@@ -17,6 +17,25 @@
 
 <body>
 
+    <header>
+        <nav class="nav justify-content-center navbar-dark bg-dark shadow-lg align-items-center py-3">
+            <a class="nav-link active" href="#" aria-current="page">Dashboard</a>
+            <a class="nav-link" href="{{ route('comics.index') }}">Comics</a>
+            <a class="btn btn-info btn-sm ms-auto rounded-pill" href="{{ route('welcome') }}">Home</a>
+        </nav>
+    </header>
+
+    <main class="min-vh-100">
+        @yield('main')
+    </main>
+
+
+    <footer class="bg-dark text-white py-4 text-center">
+        <p>
+            Copyright &copy; DC Comics
+        </p>
+    </footer>
+
 
 
 </body>
