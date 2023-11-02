@@ -30,7 +30,11 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $comic = Comic::create($data);
+
+        return to_route('lightsaber.show', $comic);
     }
 
     /**
@@ -38,7 +42,7 @@ class ComicController extends Controller
      */
     public function show(Comic $comic)
     {
-        //
+        return view('admin.comics.show', compact('comic'));
     }
 
     /**

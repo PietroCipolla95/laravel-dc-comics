@@ -18,10 +18,9 @@
 <body>
 
     <header>
-        <nav class="nav justify-content-center navbar-dark bg-dark shadow-lg align-items-center py-3">
-            <a class="nav-link active" href="#" aria-current="page">Dashboard</a>
-            <a class="nav-link" href="{{ route('comics.index') }}">Comics</a>
-            <a class="btn btn-info btn-sm ms-auto rounded-pill" href="{{ route('welcome') }}">Home</a>
+        <nav class="nav justify-content-center navbar-dark bg-dark align-items-center py-3">
+            <a class="nav-link text-info" href="{{ route('comics.index') }}">Comics</a>
+            <a class="btn btn-info btn-sm ms-auto me-5" href="{{ route('welcome') }}">Home</a>
         </nav>
     </header>
 

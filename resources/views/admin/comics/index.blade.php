@@ -61,7 +61,8 @@
                                     <td>
 
                                         <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary">View</a>
-                                        <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-secondary">Edit</a>
+                                        <a href="{{ route('comics.edit', $comic->id) }}"
+                                            class="btn btn-secondary my-3">Edit</a>
 
                                     </td>
                                 </tr>
