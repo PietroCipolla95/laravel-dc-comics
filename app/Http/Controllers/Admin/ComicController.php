@@ -34,7 +34,7 @@ class ComicController extends Controller
 
         $comic = Comic::create($data);
 
-        return to_route('lightsaber.show', $comic);
+        return to_route('admin.comics.show', $comic);
     }
 
     /**
@@ -50,7 +50,7 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('admin.comics.edit', compact('comic'));
     }
 
     /**
@@ -58,7 +58,12 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all();
+
+
+
+        $comic->update($data);
+        return to_route('comics.show', $comic);
     }
 
     /**

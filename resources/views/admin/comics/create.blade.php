@@ -60,7 +60,7 @@
 
             <div class="mb-3">
                 <label for="sale_date" class="form-label">Sale date</label>
-                <input type="number" step="0.01" class="form-control" name="sale_date" id="sale_date"
+                <input type="text" step="0.01" class="form-control" name="sale_date" id="sale_date"
                     aria-describedby="helpId" placeholder="Es. 2023-10-24">
                 <small id="sale_dateHelper" class="form-text text-muted">Type the sale date here</small>
             </div>
