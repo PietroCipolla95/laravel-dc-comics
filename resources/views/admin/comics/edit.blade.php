@@ -12,14 +12,14 @@
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId"
-                    placeholder="Acolyte Eco Battle staff" value="{{ $comic->title }}">
+                    placeholder="Batman" value="{{ $comic->title }}">
                 <small id="titleHelper" class="form-text text-muted">Type the title here</small>
             </div>
 
             <div class="mb-3">
                 <label for="price" class="form-label">Price</label>
                 <input type="number" step="0.01" class="form-control" name="price" id="price"
-                    aria-describedby="helpId" placeholder="99.99" value="{{ $comic->price }}">
+                    aria-describedby="helpId" placeholder="99.99" value="{{ $comic->price }}" required>
                 <small id="priceHelper" class="form-text text-muted">Type the price here</small>
             </div>
 

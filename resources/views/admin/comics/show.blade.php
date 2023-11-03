@@ -1,11 +1,17 @@
 @extends('layouts.admin')
 
 @section('main')
-    <section id="show_section">
+    <section id="show_section" class=" min-vh-100">
 
-        <h1 class="bg-secondary py-4 text-center">
-            {{ $comic->title }}
-        </h1>
+
+
+        <div class="bg-secondary py-4 text-center d-flex justify-content-center align-items-center">
+            <h1>
+                {{ $comic->title }}
+            </h1>
+            <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-info mx-5">Edit</a>
+        </div>
+
         <div class="container">
             <div class="row py-4">
                 <div class="col">
@@ -26,7 +32,7 @@
                             Type: {{ $comic->type }}
                         </p>
                         <p class="fs-4">
-                            Price: {{ $comic->price }}
+                            Price: ${{ $comic->price }}
                         </p>
                         <div class="row">
                             <div class="col">

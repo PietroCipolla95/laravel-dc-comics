@@ -12,7 +12,7 @@
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId"
-                    placeholder="Acolyte Eco Battle staff">
+                    placeholder="Batman">
                 <small id="titleHelper" class="form-text text-muted">Type the title here</small>
             </div>
 
