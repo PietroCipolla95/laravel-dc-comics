@@ -5,12 +5,20 @@
 
 
 
+
         <div class="bg-secondary py-4 text-center d-flex justify-content-center align-items-center">
             <h1>
                 {{ $comic->title }}
             </h1>
             <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-info mx-5">Edit</a>
         </div>
+
+        @if (session('message'))
+            <div class="alert alert-success alert-dismissible fade show my-2" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <strong> {{ session('message') }} </strong>
+            </div>
+        @endif
 
         <div class="container">
             <div class="row py-4">

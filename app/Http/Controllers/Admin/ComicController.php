@@ -7,6 +7,8 @@ use App\Models\Comic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+use function PHPUnit\Framework\isNull;
+
 class ComicController extends Controller
 {
     /**
@@ -31,18 +33,29 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+
+        $valData = $request->validate(
+            [
+                'title' => 'required|bail|min:3|max:80',
+                'price' => 'required|min:1|max:10',
+                'description' => 'required|min:3|max:1000',
+                'series' => 'nullable|min:1|max:20',
+                'type' => 'nullable|min:2|max:50',
+                'artists' => 'nullable|max:500',
+                'writers' => 'nullable|max:500',
+                'sale_date' => 'nullable',
+                'thumb' => 'nullable|image|max:2000',
+            ]
+        );
 
         if ($request->has('thumb')) {
-
-            $image_path = Storage::put('comics_images', $request->thumb);
-            $data['thumb'] = $image_path;
+            $file_path = Storage::put('comics_images', $request->thumb);
+            $valData['thumb'] = $file_path;
         }
 
+        $newComic = Comic::create($valData);
 
-        $comic = Comic::create($data);
-
-        return to_route('comics.show', $comic);
+        return to_route('comics.show', $newComic);
     }
 
     /**
@@ -66,19 +79,36 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        $data = $request->all();
+        $valData = $request->validate(
+            [
+                'title' => 'required|bail|min:3|max:80',
+                'price' => 'required|min:1|max:10',
+                'description' => 'required|min:3|max:1000',
+                'series' => 'nullable|min:1|max:20',
+                'type' => 'nullable|min:2|max:50',
+                'artists' => 'nullable|max:500',
+                'writers' => 'nullable|max:500',
+                'sale_date' => 'nullable',
+                'thumb' => 'nullable|image|max:2000',
+            ]
+        );
 
-        if ($request->has('thumb') && $comic->thumb) {
-
-            Storage::delete($comic->thumb);
+        if ($request->has('thumb')) {
 
             $newImage = $request->thumb;
+
             $imagePath = Storage::put('comics_images', $newImage);
-            $data['thumb'] = $imagePath;
+
+            if (!is_null($comic->thumb) && Storage::fileExists($comic->thumb)) {
+
+                Storage::delete($comic->thumb);
+            }
+
+            $valData['thumb'] = $imagePath;
         }
 
-        $comic->update($data);
-        return to_route('comics.show', $comic);
+        $comic->update($valData);
+        return to_route('comics.show', $comic)->with('message', 'You updated file!');
     }
 
     /**

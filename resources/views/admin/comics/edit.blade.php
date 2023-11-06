@@ -3,6 +3,16 @@
 @section('main')
     <div class="container my-5">
 
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
 
         <form action="{{ route('comics.update', $comic) }}" method="POST" enctype="multipart/form-data">
 
